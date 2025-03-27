@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Urbanist, Merriweather } from 'next/font/google'
+import { Urbanist, Cormorant_Garamond} from 'next/font/google'
 
 import directus from '@/lib/directus'
 import { readItems } from '@directus/sdk'
@@ -15,9 +15,9 @@ const urbanist = Urbanist({
 	variable: '--font-urbanist',
 	subsets: ['latin'],
 })
-const lora = Merriweather({
-	weight: ['300','400','700','900'],
-	variable: '--font-merriweather',
+const cormorant = Cormorant_Garamond({
+	weight: ['300','400','500','600','700'],
+	variable: '--font-cormorant-garamond',
 	subsets: ['latin'],
 })
 
@@ -43,7 +43,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='pl'>
-			<body className={`${urbanist.variable} ${lora.variable}  antialiased`}>
+			<body className={`${urbanist.variable} ${cormorant.variable}  antialiased`}>
 				<HeaderNew />
 				{children}
 			</body>
