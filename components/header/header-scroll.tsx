@@ -20,7 +20,7 @@ const HeaderScroll = ({logo}: Global) => {
 
 
 	return (
-		<nav className='flex justify-between items-center xl:items-start px-2 md:px-6 py-3  max-w-screen-max mx-auto bg-background-dark'>
+		<nav className='flex justify-between items-center xl:items-start px-2 md:px-6 py-3  max-w-screen-max mx-auto bg-black'>
 			<Link href={ROUTES.HOME} aria-label='Strona główna'>
 			{logo && <Image src={getAssetUrl(logo)} alt='' width={180} height={70} />}
 			</Link>

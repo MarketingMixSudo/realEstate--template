@@ -17,6 +17,7 @@ export interface BlockHero {
 	image: string
 	preheading: string
 	movie: string
+	poster: string
 
 	buttons: {
 		label: string

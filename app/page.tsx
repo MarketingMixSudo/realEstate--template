@@ -6,8 +6,7 @@ import React from 'react'
 import { getAssetUrl } from '@/lib/utils'
 import type { Metadata } from 'next'
 import Hero from '@/components/blocks/hero'
-
-
+import HeadingText from '@/components/blocks/heading-text'
 
 const Home = async () => {
 	const home = await directus.request(
@@ -38,31 +37,27 @@ const Home = async () => {
 		})
 	)
 
-  console.log(home.blocks)
+	console.log(home.blocks)
 
 	return (
 		<>
 			{/* Mapowanie bloków */}
-			{home?.blocks?.map((block, index) => (
-				<div key={index}>
-          {block.collection === 'block_hero' && <Hero {...block.item} />}
-          {block.collection === 'block_heading_and_text' && 
-          
-          <div className='flex flex-col justify-center items-center text-center'>
-            <h2 className='text-4xl'>{block.item.heading} <span className='text-blue-500'>{block.item.heading_special}</span></h2>
-            <p>{block.item.content}</p>
+			<>
+				{/* Mapowanie bloków */}
+				{home?.blocks?.map((block, index) => (
+					<>
+						{block.collection === 'block_hero' && <Hero key={block.item.id} {...block.item} />}
 
-
-            {block.item.buttons && block.item.buttons.map(button => (
-				<button className='border px-12 py-6 text-black z-10'>{button.label}</button>
-			))}
-             </div>
-          
-          }
-          
-          
-          </div>
-			))}
+						{block.collection === 'block_heading_and_text' && (
+							<HeadingText
+								key={block.item.id}
+								{...block.item}
+								className={index === 1 ? 'pt-20 py-12 px-4' : 'py-12 px-4'}
+							/>
+						)}
+					</>
+				))}
+			</>
 
 			{/* Sekcja z nieruchomościami */}
 			<section className='grid grid-cols-4 px-20 gap-12 mt-12'>
