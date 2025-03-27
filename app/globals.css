@@ -6,10 +6,21 @@
 @theme inline {
 
 
-  --font-heading: "Urbanist", sans-serif;
+  --font-heading: "Merriweather", sans-serif;
   --font-text: "Urbanist", sans-serif;
 
   --color-font-light: #eee;
+  --color-font-dark: #222;
+
+  --color-primary-100:#EFBF04;
+  --color-primary-200:#D4AA04;
+  --color-primary-300:#BA9503;
+  --color-primary-400:#9A6a43;
+  --color-primary-500:#856A02;
+  --color-primary-600:#6A5502;
+  --color-primary-700:#504001;
+  --color-primary-800:#352A01;
+
 
 
   --color-background: var(--background);
@@ -125,6 +136,21 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-text; 
+    @apply bg-background text-foreground font-text tracking-wider; 
   }
+
+  h1,h2,h3,h4,h5,h6{
+    @apply font-heading
+  }
+}
+
+@layer utilities {
+  .nav-link {
+		@apply relative font-medium   text-font-light w-fit block after:block after:absolute after:h-[1px] after:bg-primary-400 after:w-full after:scale-x-0 hover:after:scale-x-100 after:transition after:duration-300 after:origin-left uppercase;
+	}
+
+	.nav-link--active {
+		@apply relative font-medium  text-primary-200 w-fit block after:block after:absolute after:h-[1px] after:bg-primary-200 after:w-full after:transition after:duration-300 after:origin-left uppercase;
+	}
+
 }

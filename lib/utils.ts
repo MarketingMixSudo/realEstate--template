@@ -8,3 +8,6 @@ export function cn(...inputs: ClassValue[]) {
 export const getAssetUrl = (asset: string) => {
 	return `${process.env.NEXT_PUBLIC_DIRECTUS_API_ENDPOINT}/assets/${asset}`;
 };
+
+
+

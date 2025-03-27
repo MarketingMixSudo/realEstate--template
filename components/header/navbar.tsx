@@ -16,7 +16,7 @@ const Navbar = ({logo, name,address,city,email,phone,socials}: Global) => {
 	const links = [
 		{
 			name: 'Nieruchomości',
-			href: '#',
+			href: '/',
 		},
 		{
 			name: 'Kalkulator',
@@ -63,13 +63,13 @@ const Navbar = ({logo, name,address,city,email,phone,socials}: Global) => {
 							</SheetTitle>
 						</SheetHeader>
 
-						<ul className='flex flex-col gap-6  '>
+						<ul className='flex flex-col gap-6  text-white'>
 							{links.map(link => (
 								<li key={link.name} className='w-full'>
 									<SheetClose asChild>
 										<Link
 											href={link.href}
-											className={`!text-xl !font-light w-full block hover:!border-black ${
+											className={`!text-xl font-light w-full block hover:!border-black ${
 												pathname === link.href ? 'nav-link--active !border-black' : 'nav-link '
 											}`}>
 											{link.name}
@@ -96,10 +96,10 @@ const Navbar = ({logo, name,address,city,email,phone,socials}: Global) => {
 				</Sheet>
 			</div>
 
-			<ul className='hidden lg:flex gap-12 uppercase '>
-				{links.map(item => (
-					<li key={item.name}>
-						<Link href={item.href}>{item.name}</Link>
+			<ul className='hidden lg:flex gap-12 uppercase text-white'>
+				{links.map(link => (
+					<li key={link.name} >
+						<Link href={link.href} className={	pathname === link.href ? 'nav-link--active !border-black' : 'nav-link '}>{link.name}</Link>
 					</li>
 				))}
 			</ul>
