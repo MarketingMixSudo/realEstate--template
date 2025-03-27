@@ -27,7 +27,7 @@ const Hero = ({ image, buttons, headline, content, preheading, movie,poster }: B
 
 			<div className=' flex flex-col justify-center items-center gap-6 z-20 mt-12 text-center px-3'>
 				<span className='text-font-light z-10 uppercase text-sm'>{preheading}</span>
-				<h1 className='text-white z-10 text-4xl sm:text-6xl font-light uppercase'>{headline}</h1>
+				<h1 className='text-white z-10 text-4xl sm:text-7xl font-light uppercase'>{headline}</h1>
 				<span className='text-white z-10 text-sm'>{content}</span>
 
 				<div className='flex flex-wrap justify-center items-center gap-12 mt-6 sm:mt-12'>
