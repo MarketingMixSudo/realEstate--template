@@ -1,16 +1,14 @@
 import { getAssetUrl } from '@/lib/utils'
 import { ChevronDown } from 'lucide-react'
 import Image from 'next/image'
-import React from 'react'
 import { Button } from '../ui/button'
 import Link from 'next/link'
 
 import { BlockHero } from '@/lib/schemas'
 
-const Hero = ({ image, buttons, headline, content, preheading, movie } : BlockHero) => {
+const Hero = ({ image, buttons, headline, content, preheading, movie }: BlockHero) => {
 	return (
 		<section className='relative w-full h-dvh flex justify-center items-center  overflow-hidden '>
-
 			{image && <Image src={getAssetUrl(image)} alt='dasdsa' fill />}
 
 			{movie && (
@@ -33,19 +31,23 @@ const Hero = ({ image, buttons, headline, content, preheading, movie } : BlockHe
 				<span className='text-white z-10'>{content}</span>
 
 				<div className='flex flex-wrap justify-center items-center gap-12 mt-6 sm:mt-12'>
-					{buttons.map((button,index) => (
-						<Button asChild key={`${button.label}-${index}`} variant={button.variant} className={button.variant === 'outline' ? 'border-white !text-font-light':'hover:border-white !text-font-light '}>
+					{buttons.map((button, index) => (
+						<Button
+							asChild
+							key={`${button.label}-${index}`}
+							variant={button.variant}
+							className={
+								button.variant === 'outline' ? 'border-white !text-font-light' : 'hover:border-white !text-font-light '
+							}>
 							<Link href={button.href}>{button.label}</Link>
 						</Button>
 					))}
 				</div>
 			</div>
 
-			<a
-				href='#hotel'
-				className='absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex justify-center items-center gap-1 group'>
-				<ChevronDown className='size-12 group-hover:text-primary-400 duration-300 ' />
-			</a>
+			<button className='absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex justify-center items-center gap-1 group border border-white rounded-full p-1 animate-pulse hover:translate-y-1 duration-150 cursor-pointer '>
+				<ChevronDown className='size-12  duration-300 text-white stroke-1' />
+			</button>
 		</section>
 	)
 }
