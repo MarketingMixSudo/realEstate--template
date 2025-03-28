@@ -1,4 +1,7 @@
+//completed
+
 import { getAssetUrl } from '@/lib/utils'
+
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -15,7 +18,7 @@ const PropertyCard = ({
 	property_surface,
 }: Property) => {
 	return (
-		<Link href={`/property/${slug}`} className='shadow-lg hover:-translate-y-1 duration-150 hover:shadow-xl'>
+		<Link href={`/property/${slug}`} className='shadow-lg duration-150 hover:-translate-y-1  hover:shadow-xl'>
 			{thumbnail && title && (
 				<Image
 					src={getAssetUrl(thumbnail)}

@@ -1,3 +1,5 @@
+//completed
+
 import directus from '@/lib/directus'
 import { readItems } from '@directus/sdk'
 
@@ -60,7 +62,7 @@ const Properties = async ({
 	return (
 		<section className={cn('section', className)}>
 			<div className='wrapper !max-w-[1800px]'>
-				<div className='flex flex-col justify-center items-center gap-4  max-w-screen-lg mx-auto text-center'>
+				<div className='flex flex-col justify-center items-center gap-4 max-w-screen-lg mx-auto text-center'>
 					{preheading && <span className='uppercase text-sm'> {preheading}</span>}
 					<h2 className='text-4xl sm:text-5xl uppercase '>
 						{heading}
