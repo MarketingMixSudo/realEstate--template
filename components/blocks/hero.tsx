@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { Button } from '../ui/button'
 import Link from 'next/link'
 
-import { BlockHero } from '@/lib/schemas'
 
 const Hero = ({ image, buttons, headline, content, preheading, movie,poster }: BlockHero) => {
 	return (

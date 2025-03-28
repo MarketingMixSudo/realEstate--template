@@ -2,7 +2,10 @@ import React from 'react'
 import { Button } from '../ui/button'
 import Link from 'next/link'
 
-const HeadingText = ({ heading, heading_special, content, buttons, preheading,className }) => {
+const HeadingText = (
+	{ heading, heading_special, content, buttons, preheading }: BlockHeadingText,
+	className?: string
+) => {
 	return (
 		<section className={className}>
 			<div className='flex flex-col justify-center items-center text-center max-w-screen-lg mx-auto gap-4'>

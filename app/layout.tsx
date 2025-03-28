@@ -3,12 +3,10 @@ import { Urbanist, Cormorant_Garamond} from 'next/font/google'
 
 import directus from '@/lib/directus'
 import { readItems } from '@directus/sdk'
-import { Global } from '@/lib/schemas'
 
-import Header from '@/components/header/header'
+import HeaderNew from '@/components/header/header-wrapper'
 
 import './globals.css'
-import HeaderNew from '@/components/header/header-wrapper'
 
 const urbanist = Urbanist({
 	weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],

@@ -5,9 +5,7 @@ import Link from 'next/link'
 import React from 'react'
 import { Button } from '../ui/button'
 
-const TextImage = ({ className, image, preheading, heading, text, links,reverse }) => {
-	console.log(image)
-
+const TextImage = ({ image, preheading, heading, text, links, reverse }: BlockTextImage, className?: string) => {
 	return (
 		<section className={cn('max-w-screen-2xl mx-auto px-6', className)}>
 			<div className='grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12'>
