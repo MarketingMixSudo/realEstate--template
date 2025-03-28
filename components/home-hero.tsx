@@ -1,3 +1,5 @@
+// completed
+
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -6,7 +8,7 @@ import { getAssetUrl } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import ScrollButton from '@/components/scroll-button'
 
-const Hero = ({
+const HomeHero = ({
 	hero_image,
 	buttons,
 	hero_preheading,
@@ -70,4 +72,4 @@ const Hero = ({
 	)
 }
 
-export default Hero
+export default HomeHero

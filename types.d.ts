@@ -27,11 +27,16 @@ interface Global {
       href: string;
     }[];
     blocks: {
-      collection: string;
-    }
+      id:string;
+      collection:string
+      item:{
+        id: string
+      }
+    }[]
   }
   
   interface BlockHero {
+    
     headline: string;
     content: string;
     image: string;
@@ -45,16 +50,20 @@ interface Global {
     }[];
   }
 
+  interface Link {
+    label: string;
+    variant: "outline" | "default";
+    button: boolean;
+    href: string;
+  }
+  
   interface BlockHeadingText {
-    preheading: string;
-    heading: string;
-    heading_special: string;
-    content:string;
-    buttons: {
-        label: string;
-        variant: "outline" | "default";
-        href: string;
-      }[];
+    preheading?: string;
+    heading?: string;
+    heading_special?: string;
+    content?: string;
+    links?: Link[] | null; 
+    className?: string;
   }
 
   interface BlockTextImage {

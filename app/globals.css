@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@plugin "@tailwindcss/typography";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -153,4 +155,16 @@
 		@apply relative font-medium  text-primary-200 w-fit block after:block after:absolute after:h-[1px] after:bg-primary-200 after:w-full after:transition after:duration-300 after:origin-left uppercase;
 	}
 
+
+  .section{
+    @apply pt-12 pb-12
+  }
+
+  .wrapper{
+    @apply max-w-screen-2xl mx-auto px-6
+  }
+
+  .prose-content{
+    @apply prose max-w-max text-left
+  }
 }
