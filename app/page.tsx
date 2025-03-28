@@ -3,11 +3,9 @@ import { readItems } from '@directus/sdk'
 
 import { getAssetUrl } from '@/lib/utils'
 import type { Metadata } from 'next'
-import HeadingText from '@/components/blocks/heading-text'
-import TextImage from '@/components/blocks/text-image'
-import Properties from '@/components/blocks/properties'
 
 import HomeHero from '@/components/home-hero'
+import BlocksRenderer from '@/components/blocks/blocks-renderer'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
 	const home = await directus.request<Home>(
@@ -60,7 +58,7 @@ const Home = async () => {
 								block_hero: ['*'],
 								block_heading_and_text: ['*'],
 								block_text_image: ['*'],
-								block_properties: ['*', 'selected_properties.properties_id.*'], // Załaduj dane dla properties_id
+								block_properties: ['*', 'selected_properties.properties_id.*'],
 							},
 						},
 					],
@@ -69,21 +67,10 @@ const Home = async () => {
 		})
 	)
 
-	console.log(home.blocks)
-
 	return (
 		<>
 			<HomeHero {...home} />
-
-			{home.blocks.map((block, index) => {
-				const isFirstBlock = index === 0
-				const isLastBlock = index === home.blocks.length - 1
-				const blockClass = `${isFirstBlock ? '!pt-20' : ''} ${isLastBlock ? '!pb-20' : ''}`
-
-				if (block.collection === 'block_heading_and_text') {
-					return <HeadingText key={block.item.id} {...block.item} className={blockClass} />
-				}
-			})}
+			<BlocksRenderer blocks={home.blocks} />
 		</>
 	)
 }

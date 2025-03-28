@@ -67,16 +67,11 @@ interface Global {
   }
 
   interface BlockTextImage {
-    preheading: string,
-    heading: string,
-    text: string,
-    links: {
-        label: string;
-        variant: "outline" | "default";
-        href: string;
-        button?: boolean;
-      }[],
-    image: string,
+    preheading?: string,
+    heading?: string,
+    text?: string,
+    links?: Link[] | null; 
+    image?: string,
     reverse?: boolean,
   }
 
