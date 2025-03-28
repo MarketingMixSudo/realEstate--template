@@ -1,26 +1,19 @@
 const ROUTES = {
-	HOME: '/',
-	ECO: '/eco',
-	WALK: '/spacer-360',
-	BLOG: {
-		LIST: '/aktualnosci',
-		DETAIL: (slug: string) => `/aktualnosci/${slug}`,
+	home: '/',
+	about: '/o-nas',
+	properties: '/nieruchomosci',
+	calculator: '/kalkulator',
+	forms: {
+		list: '/formularze',
+		buy: `/formularze/kupno`,
+		sell: `/formularze/sprzedaj`,
 	},
-	SEASONS: '/pory-roku',
-	ROOMS: {
-		LIST: '/pokoje-i-apartamenty',
-		DETAIL: (slug: string) => `/pokoje-i-apartamenty/${slug}`,
+	blog: {
+		list: '/aktualnosci',
+		detail: (slug: string) => `/aktualnosci/${slug}`,
 	},
-	OFFERS: {
-		LIST: '/oferty',
-		DETAIL: (slug: string) => `/pokoje-i-oferty/${slug}`,
-	},
-	CHILDREN: '/dzieci',
-	ADULTS: '/dorosli',
-	GASTRONOMY: '/gastronomia',
-	ATTRACTIONS: '/atrakcje',
-	GALLERY: '/galeria',
-	CONTACT: '/kontakt',
+
+	contact: '/kontakt',
 } as const
 
 export default ROUTES

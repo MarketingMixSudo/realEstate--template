@@ -4,7 +4,10 @@ import { Lato, Cinzel} from 'next/font/google'
 import directus from '@/lib/directus'
 import { readItems } from '@directus/sdk'
 
+import { Toaster } from "@/components/ui/sonner"
+
 import HeaderNew from '@/components/header/header-wrapper'
+import Footer from '@/components/footer'
 
 import './globals.css'
 
@@ -44,6 +47,8 @@ export default function RootLayout({
 			<body className={`${lato.variable} ${cinzel.variable}  antialiased`}>
 				<HeaderNew />
 				{children}
+				<Footer/>
+				<Toaster />
 			</body>
 		</html>
 	)

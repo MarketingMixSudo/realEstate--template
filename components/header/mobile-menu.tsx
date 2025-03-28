@@ -27,7 +27,7 @@ const MobileMenu = () => {
 					<SheetHeader className='px-0'>
 						<SheetTitle>
 							<SheetClose asChild>
-								<Link href={ROUTES.HOME}>
+								<Link href={ROUTES.home}>
 									{/* <Image src={logo} alt={CONFIG.siteName} width={120} height={100} className='w-[120px] ' /> */}
 								</Link>
 							</SheetClose>
@@ -38,7 +38,7 @@ const MobileMenu = () => {
 						<li>
 							<SheetClose asChild>
 								<Link
-									href={ROUTES.HOME}
+									href={ROUTES.home}
 									className={`${pathname === '/' ? 'nav-link--active' : 'nav-link  '} !text-xl !font-normal`}>
 									Strona Główna
 								</Link>

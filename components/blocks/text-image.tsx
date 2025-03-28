@@ -20,7 +20,7 @@ const TextImage = ({
 				<div className='grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16'>
 					<div className={`relative w-full h-full min-h-[350px] sm:min-h-[500px]  ${reverse ? 'order-1' : ''}`}>
 						{image && (
-							<Image src={getAssetUrl(image)} alt='dasdsa' layout='fill' objectFit='cover' className='w-full h-full ' />
+							<Image src={getAssetUrl(image)} alt='dasdsa' fill className='w-full h-full object-cover object-center' />
 						)}
 					</div>
 

@@ -1,3 +1,4 @@
+
 import HeadingText from '@/components/blocks/heading-text';
 import TextImage from '@/components/blocks//text-image';
 import Properties from '@/components/blocks//properties';
