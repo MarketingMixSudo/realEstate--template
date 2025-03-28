@@ -1,6 +1,6 @@
-import React from 'react'
-import HeadingText from './heading-text';
-import TextImage from './text-image';
+import HeadingText from '@/components/blocks/heading-text';
+import TextImage from '@/components/blocks//text-image';
+import Properties from '@/components/blocks//properties';
 
 const BlocksRenderer = ({ blocks }: { blocks: Home['blocks'] }) => {
     let textImageIndex = 0; 
@@ -21,6 +21,12 @@ const BlocksRenderer = ({ blocks }: { blocks: Home['blocks'] }) => {
                     textImageIndex++; 
 
                     return <TextImage key={block.item.id} {...block.item} className={blockClass} reverse={reverse} />;
+                }
+
+                if (block.collection === 'block_properties') {
+                    
+
+                    return <Properties key={block.item.id} {...block.item} className={blockClass}  />;
                 }
             })}
         </>

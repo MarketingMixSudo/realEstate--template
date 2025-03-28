@@ -35,7 +35,7 @@ const HomeHero = ({
 					<source src={getAssetUrl(hero_movie)} type='video/mp4' />
 				</video>
 			) : hasImage ? (
-				<Image src={getAssetUrl(hero_image)} alt={hero_heading} fill priority />
+				<Image src={getAssetUrl(hero_image)} alt={hero_heading} fill priority className='object-cover object-center' />
 			) : null}
 
 			{/* Overlay for text readability */}

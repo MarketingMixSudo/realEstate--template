@@ -34,22 +34,24 @@ interface Global {
       }
     }[]
   }
-  
-  interface BlockHero {
-    
-    headline: string;
-    content: string;
-    image: string;
-    preheading: string;
-    movie: string;
-    poster: string;
-    buttons: {
-      label: string;
-      variant: "outline" | "default";
-      href: string;
-    }[];
-  }
 
+  interface Property {
+    title?: string;
+    slug?: string;
+    thumbnail?: string;
+    city?: string;
+    address?: string;
+    type?: string;
+    listing_type?: string;
+    price?: string;
+    property_surface?: string;
+    rooms_count?: number;
+    properties_id?: Property
+  
+  }
+    
+  
+  
   interface Link {
     label: string;
     variant: "outline" | "default";
@@ -75,3 +77,18 @@ interface Global {
     reverse?: boolean,
   }
 
+  
+  interface BlockProperties {
+    preheading?: string,
+    heading?: string,
+    heading_special?: string,
+    text?: string,
+    items_count?: number
+    grid_columns?: number
+    listing_type?:  "latest" | "custom";
+    links?: Link[] | null; 
+    selected_properties?:  Property[]
+    
+  }
+
+  
