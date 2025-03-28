@@ -6,8 +6,8 @@
 @theme inline {
 
 
-  --font-heading: "Cormorant Garamond", serif;
-  --font-text: "Urbanist", sans-serif;
+  --font-heading: "Cinzel", serif;
+  --font-text: "Lato", sans-serif;
 
   --color-font-light: #eee;
   --color-font-dark: #222;
@@ -136,7 +136,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-text tracking-wider; 
+    @apply bg-background text-foreground font-text tracking-wider font-light; 
   }
 
   h1,h2,h3,h4,h5,h6{

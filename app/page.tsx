@@ -1,7 +1,6 @@
 import directus from '@/lib/directus'
 import { readItems } from '@directus/sdk'
 
-import React from 'react'
 import { getAssetUrl } from '@/lib/utils'
 import type { Metadata } from 'next'
 import Hero from '@/components/blocks/hero'
@@ -17,6 +16,7 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
 			fields: ['meta_title', 'meta_description','og_image'],
 		})
 	)
+
 
 	const global = await directus.request<Global>(
 		readItems('global', {
@@ -53,7 +53,9 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
 
 
 const Home = async () => {
-	const home = await directus.request(
+
+
+	const home = await directus.request<Home>(
 		readItems('home', {
 		  fields: [
 			'*',
@@ -74,11 +76,16 @@ const Home = async () => {
 		})
 	  )
 	  
+  
 
-
+console.log(home)
 
 	return (
 		<>
+
+<Hero {...home}  />
+
+
 			Mapowanie bloków
 			{home.blocks?.map((block, index, arr) => {
   const isSecondBlock = index === 1;
@@ -88,7 +95,7 @@ const Home = async () => {
 
   return (
     <>
-      {block.collection === 'block_hero' && <Hero key={block.item.id} {...block.item} />}
+      {/* {block.collection === 'block_hero' && <Hero key={block.item.id} {...block.item} />} */}
 
       {block.collection === 'block_heading_and_text' && (
         <HeadingText

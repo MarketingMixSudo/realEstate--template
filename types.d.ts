@@ -15,9 +15,19 @@ interface Global {
     meta_title: string;
     meta_description: string;
     og_image: string;
+    hero_image: string;
+    hero_movie: string;
+    hero_poster: string;
+    hero_preheading: string;
+    hero_heading: string;
+    hero_subheading: string;
+    buttons: {
+      label: string;
+      variant: "outline" | "default";
+      href: string;
+    }[];
     blocks: {
       collection: string;
-
     }
   }
   

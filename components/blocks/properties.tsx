@@ -4,8 +4,17 @@ import { readItems } from '@directus/sdk'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import PropertyCard from '../property-card'
 
-const Properties = async ({ preheading, heading, text, items_count, grid_columns, listing_type,selected_properties }) => {
+const Properties = async ({
+	preheading,
+	heading,
+	text,
+	items_count,
+	grid_columns,
+	listing_type,
+	selected_properties,
+}) => {
 	const sortOrder = (() => {
 		switch (listing_type) {
 			case 'latest':
@@ -17,15 +26,19 @@ const Properties = async ({ preheading, heading, text, items_count, grid_columns
 		}
 	})()
 
+	const properties =
+		listing_type === 'latest'
+			? await directus.request(
+					readItems('properties', {
+						filter: { status: { _eq: 'published' } },
+						sort: [sortOrder],
+						fields: ['*'],
+						limit: items_count,
+					})
+			  )
+			: selected_properties || []
 
-	const properties = await directus.request(
-		readItems('properties', {
-			filter: { status: { _eq: 'published' } },
-			sort: [sortOrder],
-			fields: ['*'],
-			limit: items_count,
-		})
-	)
+	console.log(properties)
 
 	// Dynamiczna klasa CSS dla siatki
 	let gridClass = 'grid gap-12'
@@ -54,40 +67,16 @@ const Properties = async ({ preheading, heading, text, items_count, grid_columns
 				</div>
 
 				<div className={gridClass}>
+					{listing_type === 'latest' &&
+						properties.map(property => (
+              <PropertyCard key={property.slug} {...property} />
+						))}
 
-
-
-					{listing_type === 'latest' &&  properties.map(property => (
-						<Link href={`/property/${property.slug}`} key={property.slug} className='border flex flex-col items-center'>
-							<Image src={getAssetUrl(property.thumbnail)} alt={property.slug} width={300} height={300} />
-							<div>
-								<span>{property.type}</span>
-								<br />
-								<span>{property.listing_type}</span>
-								<h3>{property.city}</h3>
-								<h4>{property.address}</h4>
-								<p>{property.short_description}</p>
-								<p>{property.price}</p>
-							</div>
-						</Link>
-					))}
-
-{listing_type === 'custom' &&  selected_properties?.map((property) => (
-	
-	
-  <Link href={`/property/${property.properties_id.slug}`} key={property.properties_id.slug} className='border flex flex-col items-center'>
-  <Image src={getAssetUrl(property.properties_id.thumbnail)} alt={property.properties_id.slug} width={300} height={300} />
-  <div>
-    <span>{property.properties_id.type}</span>
-    <br />
-    <span>{property.properties_id.listing_type}</span>
-    <h3>{property.properties_id.city}</h3>
-    <h4>{property.properties_id.address}</h4>
-    <p>{property.properties_id.short_description}</p>
-    <p>{property.properties_id.price}</p>
-  </div>
-</Link>
-    ))}
+					{listing_type === 'custom' &&
+						properties?.map(property => (
+              <PropertyCard key={property.properties_id.slug} {...property.properties_id} />
+							
+						))}
 				</div>
 			</div>
 		</section>
@@ -95,5 +84,3 @@ const Properties = async ({ preheading, heading, text, items_count, grid_columns
 }
 
 export default Properties
-
-
