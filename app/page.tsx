@@ -59,6 +59,7 @@ const Home = async () => {
 								block_heading_and_text: ['*'],
 								block_text_image: ['*'],
 								block_properties: ['*', 'selected_properties.properties_id.*'],
+								block_properties_slider: ['*', 'selected_properties.properties_id.*'],
 								block_blog_section: ['*'],
 							},
 						},
