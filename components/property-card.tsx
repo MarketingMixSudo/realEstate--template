@@ -45,7 +45,7 @@ const PropertyCard = ({
 					)}
 					{property_surface && <span>{property_surface} m²</span>}
 				</span>
-				<span className='font-semibold text-lg'> {price} PLN</span>
+				<span className='font-semibold '> {price} PLN</span>
 			</div>
 		</Link>
 	)

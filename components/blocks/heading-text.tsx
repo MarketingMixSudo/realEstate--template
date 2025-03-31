@@ -16,13 +16,13 @@ const HeadingText = ({
 		<section className={cn('section', className)}>
 			<div className='wrapper'>
 				<div className='flex flex-col justify-center items-center text-center gap-4 max-w-screen-lg mx-auto'>
-					{preheading && <span className='uppercase text-sm'> {preheading}</span>}
-					<h2 className='text-4xl sm:text-5xl uppercase'>
+					{preheading && <span className='preheading'> {preheading}</span>}
+					<h2 className='heading'>
 						{heading}
 
 						{heading_special && (
 							<>
-								<br /> <span className='text-primary-400'>{heading_special}</span>
+								<br /> <span className='heading--special'>{heading_special}</span>
 							</>
 						)}
 					</h2>

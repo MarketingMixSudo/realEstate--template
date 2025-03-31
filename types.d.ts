@@ -100,8 +100,15 @@ interface BlockProperties {
 	text?: string
 	items_count?: number
 	grid_columns?: number
-	listing_type?: 'latest' | 'custom'
+	listing_type?: 'latest' | 'custom' | undefined
 	links?: Link[] | null
+	selected_properties?: Property[]
+}
+
+interface BlockPropertiesSlider {
+	listing_type?: 'latest' | 'custom'
+	type?: 'all' | 'sell' | 'rent'
+	items_count?: number
 	selected_properties?: Property[]
 }
 interface BlockBlogSection {

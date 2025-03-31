@@ -30,7 +30,7 @@ const PostCard = ({ slug, thumbnail, title, date_created, categories }: Post) =>
 				<h3 className='text-2xl line-clamp-1'> {title}</h3>
 
 				{postCategories.slice(0, 1).map(category => (
-					<span key={category.slug}>
+					<span key={category.slug} className='text-sm'>
 						{category.title}
 						{postCategories.length > 2 && <span>+{postCategories.length - 1}</span>}
 					</span>

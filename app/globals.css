@@ -145,6 +145,14 @@
 	h6 {
 		@apply font-heading;
 	}
+
+	.swiper-button-prev,.swiper-button-next{
+		@apply !hidden md:!block
+	}
+
+	.swiper-button-next:after,.swiper-button-prev:after{
+		@apply !text-primary-400 
+	}
 }
 
 @layer utilities {
@@ -159,6 +167,7 @@
 	.link {
 		@apply relative inline-block   w-fit after:-mt-[2px]  after:block after:absolute after:h-[1px] after:bg-primary-400 after:w-full after:scale-x-0 hover:after:scale-x-100 after:transition after:duration-300 after:origin-left;
 	}
+	
 
 	.section {
 		@apply pt-12 pb-12;
@@ -166,6 +175,22 @@
 
 	.wrapper {
 		@apply max-w-screen-2xl mx-auto px-6;
+	}
+
+	.preheading{
+		@apply uppercase text-sm
+	}
+
+	.heading{
+		@apply text-4xl sm:text-5xl uppercase
+	}
+
+	.heading--small{
+		@apply text-3xl sm:text-4xl uppercase
+	}
+
+	.heading--special{
+		@apply text-primary-400
 	}
 
 	.prose-content {

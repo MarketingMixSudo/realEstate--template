@@ -6,7 +6,6 @@ import Link from 'next/link'
 import { getAssetUrl } from '@/lib/utils'
 
 import { Button } from '@/components/ui/button'
-import ScrollButton from '@/components/scroll-button'
 
 const HomeHero = ({
 	hero_image,
@@ -54,7 +53,7 @@ const HomeHero = ({
 								key={`${button.label}-${index}`}
 								variant={button.variant}
 								className={
-									button.variant === 'outline' ? 'border-white !text-font-light' : 'hover:border-white !text-font-light'
+									button.variant === 'outline' ? 'border-white !text-font-light' : button.variant === 'default' ? 'hover:border-white !text-font-light' : ''
 								}>
 								<Link href={button.href} aria-label={button.label}>
 									{button.label}
@@ -65,7 +64,7 @@ const HomeHero = ({
 				)}
 			</div>
 
-			{/* <ScrollButton className="hidden sm:flex" /> */}
+			
 		</section>
 	)
 }

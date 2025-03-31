@@ -1,9 +1,9 @@
 import HeadingText from '@/components/blocks/heading-text'
 import TextImage from '@/components/blocks//text-image'
 import Properties from '@/components/blocks//properties'
-import BlogSection from './blog-section'
+import BlogSection from '@/components/blocks/blog-section'
 
-import PropertiesCarousel from '../properties-carousel/wrapper'
+import PropertiesSliderWrapper from '@/components/properties-carousel/properties-slider-wrapper'
 
 const BlocksRenderer = ({ blocks }: { blocks: Home['blocks'] }) => {
 	let textImageIndex = 0
@@ -34,7 +34,7 @@ const BlocksRenderer = ({ blocks }: { blocks: Home['blocks'] }) => {
 					return <BlogSection key={block.item.id} {...block.item} className={blockClass} />
 				}
 				if (block.collection === 'block_properties_slider') {
-					return <PropertiesCarousel key={block.item.id} {...block.item} />
+					return <PropertiesSliderWrapper key={block.item.id} {...block.item} />
 				}
 			})}
 		</>

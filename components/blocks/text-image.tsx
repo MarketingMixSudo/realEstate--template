@@ -3,7 +3,7 @@ import { cn, getAssetUrl } from '@/lib/utils'
 import Image from 'next/image'
 
 
-import LinkList from '../link-list'
+import LinkList from '@/components/link-list'
 
 const TextImage = ({
 	image,
@@ -25,8 +25,8 @@ const TextImage = ({
 					</div>
 
 					<div className='flex flex-col justify-start items-start gap-3 py-6'>
-						<p className='uppercase text-sm'>{preheading}</p>
-						<h2 className='text-3xl sm:text-4xl uppercase'>{heading}</h2>
+						<p className='preheading'>{preheading}</p>
+						<h2 className='heading--small'>{heading}</h2>
 						{text && <div className='prose-content  !max-w-xl' dangerouslySetInnerHTML={{ __html: text }} />}
 
 						{links && <LinkList links={links} />}

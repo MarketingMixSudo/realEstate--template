@@ -16,13 +16,13 @@ const PropertiesCarousel = ({ children }: CarouselProps) => {
   const swiperRef = useRef<SwiperType | null>(null);
 
   return (
-    <div className='relative w-full xl:w-[90%] border mx-auto '>
+    <div className='relative w-full xl:w-[90%]  mx-auto '>
       <Swiper
         onSwiper={swiper => (swiperRef.current = swiper)}
         loop={true}
         effect={'fade'}
         autoplay={{
-          delay: 2500,
+          delay: 4500,
           disableOnInteraction: true,
         }}
         grabCursor={true}

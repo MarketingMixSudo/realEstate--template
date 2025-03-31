@@ -1,9 +1,9 @@
-import React from 'react'
-import PropertiesSlider from '../blocks/properties-slider'
 import directus from '@/lib/directus'
 import { readItems } from '@directus/sdk'
 
-const Wrapper = async ({ listing_type, selected_properties, type, items_count }: BlockProperties) => {
+import PropertiesSlider from '@/components/blocks/properties-slider'
+
+const PropertiesSliderWrapper = async ({ listing_type, selected_properties, type, items_count }: BlockPropertiesSlider) => {
 	const sortOrder = (() => {
 		switch (listing_type) {
 			case 'latest':
@@ -28,11 +28,9 @@ const Wrapper = async ({ listing_type, selected_properties, type, items_count }:
 		}
 	})()
 
-	const filter = { status: { _eq: 'published' } }
-
-	// Dodajemy warunek dla `type`, jeśli nie jest `null`
-	if (propertiesType) {
-		filter.listing_type = { _eq: propertiesType }
+	const filter = {
+		status: { _eq: 'published' },
+		...(propertiesType ? { listing_type: { _eq: propertiesType } } : {}),
 	}
 
 	const properties =
@@ -50,12 +48,10 @@ const Wrapper = async ({ listing_type, selected_properties, type, items_count }:
 	
 
 	return (
-		<div className='section'>
-			{/* {listing_type === 'latest' && }
-			{listing_type === 'custom' && <PropertiesSlider properties={properties} />} */}
+		<section className='section'>
 			<PropertiesSlider properties={properties} listing_type={listing_type} />
-		</div>
+		</section>
 	)
 }
 
-export default Wrapper
+export default PropertiesSliderWrapper

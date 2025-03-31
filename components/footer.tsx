@@ -96,15 +96,15 @@ const Footer = ({ logo, name, phone, email, socials }: Global) => {
 	return (
 		<>
 			<div className='' style={{ backgroundImage: 'linear-gradient(180deg, rgba(0, 0, 0, 0) 52%, black 52%, black)' }}>
-  <div className='max-w-screen-xl mx-auto relative pt-32 mx-10'>
+  <div className='max-w-screen-xl  relative pt-32  sm:mx-10 2xl:mx-auto'>
     
     <Image src={dummyImage} alt='bg' fill className='object-cover object-center z-10' />
-    <div className='absolute inset-0 w-full h-full bg-black/30 z-20'></div>
+    <div className='absolute inset-0 w-full h-full bg-black/40 z-20'></div>
 
-    <div className='z-30 text-white relative max-w-screen-md mx-auto text-center py-20 space-y-5'>
+    <div className='z-30 text-white relative max-w-screen-md mx-auto text-center py-20 space-y-5 px-6'>
       <h2 className='text-5xl'>Find your dream home today!</h2>
       <p>We make it easy for you to find the perfect property that meets your needs. With thousands of listings across diverse property types, your dream home is just a few clicks away.</p>
-	  <Button asChild className='mt-6'>
+	  <Button asChild className='mt-6' variant={'secondary'}>
 		<Link href='#'>Sprawdź oferty</Link>
 	  </Button>
     </div>
@@ -126,22 +126,22 @@ const Footer = ({ logo, name, phone, email, socials }: Global) => {
 							<h2 className='text-2xl  text-primary-400 uppercase'>Przydatne linki</h2>
 							<ul className='flex flex-col justify-start items-center  lg:items-start gap-3.5 mt-6'>
 								<li>
-									<Link href='#' className='utility-link !text-base !text-white  hover:!text-primary-600'>
+									<Link href='#' className='link !text-base !text-white '>
 										Polityka prywatności
 									</Link>
 								</li>
 								<li>
-									<Link href='#' className='utility-link !text-base !text-white hover:!text-primary-600'>
+									<Link href='#' className='link !text-base !text-white '>
 										Kontakt
 									</Link>
 								</li>
 								<li>
-									<Link href='#' className='utility-link !text-base !text-white  hover:!text-primary-600'>
+									<Link href='#' className='link !text-base !text-white  '>
 										Regulaminy
 									</Link>
 								</li>
 								<li>
-									<Link href='#' className='utility-link !text-base !text-white  hover:!text-primary-600'>
+									<Link href='#' className='link !text-base !text-white  '>
 										Kariera
 									</Link>
 								</li>
@@ -151,23 +151,23 @@ const Footer = ({ logo, name, phone, email, socials }: Global) => {
 						<div className='text-center'>
 							<h2 className='text-2xl  text-primary-400 uppercase'>{name}</h2>
 							<div className='flex flex-col justify-center items-center gap-6 mt-6'>
-								<Link href='#' className='group flex flex-col'>
-									<span className='!text-base !text-white  group-hover:!text-primary-600 duration-300'>
+								<Link href='#' className='group  link'>
+									<span className='!text-base !text-white   duration-300'>
 										ul. Zakopiańska 20a
-									</span>
-									<span className='!text-base !text-white  group-hover:!text-primary-600 duration-300'>
+									</span><br/>
+									<span className='!text-base !text-white   duration-300'>
 										59-850 Świeradów-Zdrój
 									</span>
 								</Link>
 								<div className='flex flex-col justify-center items-center gap-1.5'>
 									<Link
 										href={`tel:+48${phone}`}
-										className='utility-link !text-base !text-white  !lowercase hover:!text-primary-600'>
+										className='link !text-base !text-white  !lowercase'>
 										+48 {phone}
 									</Link>
 									<Link
 										href={`mailto:${email}`}
-										className='utility-link !text-base !text-white  !lowercase hover:!text-primary-600'>
+										className='link !text-base !text-white  !lowercase '>
 										{email}
 									</Link>
 								</div>
@@ -177,38 +177,25 @@ const Footer = ({ logo, name, phone, email, socials }: Global) => {
 						<div className='text-center lg:text-right'>
 							<h2 className='text-2xl  text-primary-400 uppercase'>Odwiedź nas</h2>
 
-							<ul className='flex justify-end items-center gap-4 mt-4'>
+							<ul className='flex justify-center lg:justify-end items-center gap-4 mt-4'>
 								{socials.map((social, index) => (
 									<Social key={`${social.name} - ${index}`} {...social} large />
 								))}
 							</ul>
-							{/* <div className='flex flex-col items-center lg:items-end gap-4 lg:gap-1.5 mt-10'>
-							<span className='flex justify-center items-center gap-2  utility-link !text-base !text-white/66 !font-normal !normal-case'>
-								Created by:{' '}
-								<Link href='https://marketingmix.pl'>
-									<Image src={marketingMix} alt='MarketingMix' width={100} height={30} />
-								</Link>
-							</span>
-
-							<Link
-								href='#'
-								className='utility-link !text-sm !text-white/66 !font-normal !normal-case hover:!text-primary-600'>
-								Ustawienia cookies
-							</Link>
-						</div> */}
+				
 						</div>
 					</div>
 					{/* TEXT */}
 					<hr className='border-white/30 mt-16 mb-12' />
 
-					<div className='flex justify-between'>
+					<div className='flex flex-col md:flex-row justify-center md:justify-between text-center gap-4'>
 						<div>
 							© {currentYear} {name}
 						</div>
-						<div className='flex justify-center items-center'>
+						<div className='flex justify-center items-center gap-2'>
 							Created by:
 							<Link href='https://marketingmix.pl'>
-								<Image src={marketingMix} alt='MarketingMix' width={100} height={30} />
+								<Image src={marketingMix} alt='MarketingMix' width={130} height={30} />
 							</Link>
 						</div>
 					</div>
