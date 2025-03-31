@@ -2,6 +2,7 @@
 import HeadingText from '@/components/blocks/heading-text';
 import TextImage from '@/components/blocks//text-image';
 import Properties from '@/components/blocks//properties';
+import BlogSection from './blog-section';
 
 const BlocksRenderer = ({ blocks }: { blocks: Home['blocks'] }) => {
     let textImageIndex = 0; 
@@ -28,6 +29,12 @@ const BlocksRenderer = ({ blocks }: { blocks: Home['blocks'] }) => {
                     
 
                     return <Properties key={block.item.id} {...block.item} className={blockClass}  />;
+                }
+
+                if (block.collection === 'block_blog_section') {
+                    
+
+                    return <BlogSection key={block.item.id} {...block.item} className={blockClass}  />;
                 }
             })}
         </>

@@ -14,6 +14,7 @@ const ROUTES = {
 	},
 
 	contact: '/kontakt',
+	privacyPolicy: '/polityka-prywatnosci',
 } as const
 
 export default ROUTES

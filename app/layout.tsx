@@ -1,26 +1,27 @@
 import type { Metadata } from 'next'
-import { Lato, Cinzel} from 'next/font/google'
+import { Cormorant,Open_Sans, } from 'next/font/google'
 
 import directus from '@/lib/directus'
 import { readItems } from '@directus/sdk'
 
-import { Toaster } from "@/components/ui/sonner"
+import { Toaster } from '@/components/ui/sonner'
 
 import HeaderNew from '@/components/header/header-wrapper'
 import Footer from '@/components/footer'
 
 import './globals.css'
 
-const lato = Lato({
-	weight: ['100','300','400','700','900'],
+const cormorant = Cormorant({
+	weight: ['300','400', '500', '600', '700',],
 	variable: '--font-lato',
 	subsets: ['latin'],
 })
-const cinzel = Cinzel({
-	weight: ['400','500','600','700','800','900'],
+const openSans = Open_Sans({
+	weight: ['300','400', '500', '600', '700',],
 	variable: '--font-cinzel',
 	subsets: ['latin'],
 })
+
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
 	const global = await directus.request<Global>(
@@ -37,19 +38,26 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
 	}
 }
 
-export default function RootLayout({
+const RootLayout = async ({
 	children,
 }: Readonly<{
 	children: React.ReactNode
-}>) {
+}>) => {
+	const global = await directus.request<Global>(
+		readItems('global', {
+			fields: ['*'],
+		})
+	)
 	return (
 		<html lang='pl'>
-			<body className={`${lato.variable} ${cinzel.variable}  antialiased`}>
+			<body className={`${cormorant.variable} ${openSans.variable}  antialiased`}>
 				<HeaderNew />
 				{children}
-				<Footer/>
+				<Footer {...global}/>
 				<Toaster />
 			</body>
 		</html>
 	)
 }
+
+export default RootLayout
