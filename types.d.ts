@@ -6,7 +6,7 @@ interface Global {
 	phone: string
 	logo: string
 	socials: {
-		name: string
+		name: 'facebook' | 'instagram' | 'linkedin'
 		link: string
 	}[]
 }
@@ -15,6 +15,7 @@ interface Home {
 	meta_title: string
 	meta_description: string
 	og_image: string
+	hero_type: 'image' | 'video'
 	hero_image: string
 	hero_movie: string
 	hero_poster: string
@@ -23,7 +24,7 @@ interface Home {
 	hero_subheading: string
 	buttons: {
 		label: string
-		variant: 'outline' | 'default'
+		variant: 'default' | 'secondary' | 'outline'
 		href: string
 	}[]
 	blocks: {

@@ -1,14 +1,17 @@
+// add dropdown
+
+
 'use client'
 
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { getAssetUrl } from '@/lib/utils'
 import ROUTES from '@/lib/routes'
 
 import MobileMenu from '@/components/header/mobile-menu'
 
-import { getAssetUrl } from '@/lib/utils'
 
 export const NAV_ITEMS = [
 	{
@@ -37,28 +40,32 @@ export const NAV_ITEMS = [
 	},
 ]
 
-export const colors = ['text-red-500', 'text-blue-500', 'text-green-500', 'text-orange-500', 'text-purple-500']
 
-const NavbarInitial = ({ logo }: Global) => {
+
+const NavbarInitial = ( global : Global) => {
+	
+
+
+
 	const pathname = usePathname()
 
 	return (
-		<nav className='flex justify-between items-center xl:items-start px-2 md:px-11 pt-4 lg:mt-8 max-w-screen-max mx-auto'>
+		<nav className='flex justify-between items-center xl:items-center px-2 md:px-11 mt-4 max-w-screen-max mx-auto'>
 			<Link href={ROUTES.home} aria-label='Strona główna'>
-				{logo && <Image src={getAssetUrl(logo)} alt='' width={180} height={70} />}
+				{global.logo && global.name && <Image src={getAssetUrl(global.logo)} alt={global.name} width={180} height={70} />}
 			</Link>
 
 			<ul className='hidden xl:flex justify-center items-center gap-6 pt-2 '>
 				{NAV_ITEMS.map(({ name, href }) => (
 					<li key={name}>
-						<Link href={href} className={`   ${pathname === 'href' ? 'nav-link--active' : 'nav-link'}`}>
+						<Link href={href} className={`   ${pathname === 'href' ? 'nav-link--active' : 'nav-link after:!bg-white'}`}>
 							{name}
 						</Link>
 					</li>
 				))}
 			</ul>
 
-			<MobileMenu />
+			<MobileMenu {...global} socials={global.socials}/>
 		</nav>
 	)
 }

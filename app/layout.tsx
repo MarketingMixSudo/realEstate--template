@@ -1,27 +1,29 @@
 import type { Metadata } from 'next'
-import { Cormorant,Open_Sans, } from 'next/font/google'
+import { Cormorant, Open_Sans } from 'next/font/google'
 
 import directus from '@/lib/directus'
 import { readItems } from '@directus/sdk'
 
 import { Toaster } from '@/components/ui/sonner'
 
-import HeaderNew from '@/components/header/header-wrapper'
+
+import Header from '@/components/header/header'
 import Footer from '@/components/footer'
 
 import './globals.css'
+import LenisProvider from '@/components/providers/lenis-provider'
+import ScrollToTop from '@/components/scroll-to-top'
 
 const cormorant = Cormorant({
-	weight: ['300','400', '500', '600', '700',],
+	weight: ['300', '400', '500', '600', '700'],
 	variable: '--font-lato',
 	subsets: ['latin'],
 })
 const openSans = Open_Sans({
-	weight: ['300','400', '500', '600', '700',],
+	weight: ['300', '400', '500', '600', '700'],
 	variable: '--font-cinzel',
 	subsets: ['latin'],
 })
-
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
 	const global = await directus.request<Global>(
@@ -51,10 +53,13 @@ const RootLayout = async ({
 	return (
 		<html lang='pl'>
 			<body className={`${cormorant.variable} ${openSans.variable}  antialiased`}>
-				<HeaderNew />
+			<LenisProvider>
+				<Header {...global} />
 				{children}
-				<Footer {...global}/>
+				<Footer {...global} />
+				<ScrollToTop />
 				<Toaster />
+				</LenisProvider>
 			</body>
 		</html>
 	)

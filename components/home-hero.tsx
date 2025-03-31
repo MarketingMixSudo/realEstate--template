@@ -16,14 +16,14 @@ const HomeHero = ({
 	hero_heading,
 	hero_movie,
 	hero_poster,
+	hero_type,
 }: Home) => {
-	const hasVideo = Boolean(hero_movie)
-	const hasImage = Boolean(hero_image)
+	
 
 	return (
 		<section className='relative flex justify-center items-center w-full h-dvh overflow-hidden'>
 			{/* Render video or image based on availability */}
-			{hasVideo ? (
+			{hero_type === 'video' ? (
 				<video
 					className='absolute inset-0 w-full h-full object-cover'
 					autoPlay
@@ -34,12 +34,10 @@ const HomeHero = ({
 					preload='auto'>
 					<source src={getAssetUrl(hero_movie)} type='video/mp4' />
 				</video>
-			) : hasImage ? (
-				<Image src={getAssetUrl(hero_image)} alt={hero_heading} fill priority className='object-cover object-center' />
-			) : null}
+			) : <Image src={getAssetUrl(hero_image)} alt={hero_heading} fill priority className='object-cover object-center' />}
 
 			{/* Overlay for text readability */}
-			<div className='absolute inset-0 w-full h-full  bg-black/20 z-10'></div>
+			<div className='absolute inset-0 w-full h-full  bg-black/40 z-10'></div>
 
 			{/* Content Section */}
 			<div className='flex flex-col justify-center items-center gap-6 mt-12 px-6 text-center text-font-light z-20'>
@@ -67,7 +65,7 @@ const HomeHero = ({
 				)}
 			</div>
 
-			<ScrollButton className="hidden sm:flex" />
+			{/* <ScrollButton className="hidden sm:flex" /> */}
 		</section>
 	)
 }

@@ -40,7 +40,7 @@ const BlogSection = async ({
 		})
 	)
 
-	console.log(posts)
+
 
 	let gridClass = 'grid gap-6 mt-12'
 

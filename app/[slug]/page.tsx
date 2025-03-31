@@ -29,7 +29,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
 
     const page = pages[0];
 
-    console.log(page.blocks)
+    
     
     if (!page) {
         return <div>Page not found</div>;

@@ -69,8 +69,13 @@ const Home = async () => {
 		})
 	)
 
+	
+
 	return (
 		<>
+
+
+
 			<HomeHero {...home} />
 			<BlocksRenderer blocks={home.blocks} />
 		</>

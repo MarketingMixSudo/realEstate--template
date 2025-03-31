@@ -149,11 +149,15 @@
 
 @layer utilities {
 	.nav-link {
-		@apply relative font-medium   text-font-light w-fit block after:block after:absolute after:h-[1px] after:bg-primary-400 after:w-full after:scale-x-0 hover:after:scale-x-100 after:transition after:duration-300 after:origin-left uppercase;
+		@apply relative font-medium text-font-light w-fit block after:block after:absolute after:h-[1px] after:bg-primary-400 after:w-full after:scale-x-0 hover:after:scale-x-100 after:transition after:duration-300 after:origin-left uppercase;
 	}
 
 	.nav-link--active {
-		@apply relative font-medium  text-primary-200 w-fit block after:block after:absolute after:h-[1px] after:bg-primary-200 after:w-full after:transition after:duration-300 after:origin-left uppercase;
+		@apply relative font-medium  text-primary-400 w-fit block after:block after:absolute after:h-[1px] after:bg-primary-400 after:w-full after:transition after:duration-300 after:origin-left uppercase;
+	}
+
+	.link {
+		@apply relative inline-block   w-fit after:-mt-[2px]  after:block after:absolute after:h-[1px] after:bg-primary-400 after:w-full after:scale-x-0 hover:after:scale-x-100 after:transition after:duration-300 after:origin-left;
 	}
 
 	.section {

@@ -1,20 +1,22 @@
+//  add socials, contact and address info
+
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import CONFIG from '@/lib/config'
 import ROUTES from '@/lib/routes'
 import { NAV_ITEMS } from '@/components/header/navbar-initial'
 
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import Hamburger from '@/components/header/hamburger'
 
-import logo from '@/public/assets/logo.png'
 
-const MobileMenu = () => {
+import { getAssetUrl } from '@/lib/utils'
+
+
+const MobileMenu = ({ logo, name, }:Global) => {
 	const pathname = usePathname()
 
-    const colors = ['text-red-500', 'text-blue-500', 'text-green-500', 'text-orange-500', 'text-purple-500']
 	return (
 		<div className='xl:hidden'>
 			<Sheet>
@@ -23,16 +25,18 @@ const MobileMenu = () => {
 					className='flex justify-center items-center bg-secondary-400 rounded-md '>
 					<Hamburger />
 				</SheetTrigger>
-				<SheetContent className='pl-12 bg-background-dark  border-background-dark'>
+				<SheetContent className='pl-12 bg-black border-background-dark'>
 					<SheetHeader className='px-0'>
 						<SheetTitle>
 							<SheetClose asChild>
 								<Link href={ROUTES.home}>
-									{/* <Image src={logo} alt={CONFIG.siteName} width={120} height={100} className='w-[120px] ' /> */}
+									<Image src={getAssetUrl(logo)} alt={name} width={120} height={100} className='w-[120px] ' />
 								</Link>
 							</SheetClose>
 						</SheetTitle>
 					</SheetHeader>
+
+<div className='flex flex-col justify-between h-full mb-6'>
 
 					<ul className='flex flex-col gap-6  '>
 						<li>
@@ -50,18 +54,21 @@ const MobileMenu = () => {
 									<Link
 										href={item.href}
 										className={`!text-xl !font-normal ${pathname === item.href ? 'nav-link--active' : 'nav-link'}`}>
-										{item.name === 'Dzieci'
-											? item.name.split('').map((letter, index) => (
-													<span key={index} className={`${colors[index % colors.length]} mx-[1px]`}>
-														{letter}
-													</span>
-											  ))
-											: item.name}
+										{ item.name}
 									</Link>
 								</SheetClose>
 							</li>
 						))}
 					</ul>
+
+
+{/* <p className='text-white'>{address}</p> */}
+						</div>
+					{/* <ul className='flex justify-center items-center gap-4'>
+					{socials.map((social, index) => (
+						<Social key={`${social.name} - ${index}`} {...social} />
+					))}
+				</ul> */}
 				</SheetContent>
 			</Sheet>
 		</div>

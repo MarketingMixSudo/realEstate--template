@@ -10,7 +10,7 @@ const PostCard = ({ slug, thumbnail, title, date_created, categories }: Post) =>
 		return category.posts_categories_id
 	})
 
-	console.log(postCategories)
+
 
 	return (
 		<Link href={`/property/${slug}`} className='shadow-lg duration-150 hover:-translate-y-1  hover:shadow-xl'>
