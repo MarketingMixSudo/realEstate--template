@@ -39,7 +39,7 @@ const PropertiesSliderWrapper = async ({ listing_type, selected_properties, type
 					readItems('properties', {
 						filter,
 						sort: [sortOrder],
-						fields: ['*'],
+						fields: ['title','slug','thumbnail','type','listing_type','city','address'],
 						limit: items_count,
 					})
 			  )

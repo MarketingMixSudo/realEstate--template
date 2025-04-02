@@ -21,7 +21,7 @@ const HomeHero = ({
 
 	return (
 		<section className='relative flex justify-center items-center w-full h-dvh overflow-hidden'>
-			{/* Render video or image based on availability */}
+			
 			{hero_type === 'video' ? (
 				<video
 					className='absolute inset-0 w-full h-full object-cover'

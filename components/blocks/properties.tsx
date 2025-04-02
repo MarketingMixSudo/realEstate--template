@@ -37,7 +37,18 @@ const Properties = async ({
 					readItems('properties', {
 						filter: { status: { _eq: 'published' } },
 						sort: [sortOrder],
-						fields: ['*'],
+						fields: [
+							'title',
+							'slug',
+							'thumbnail',
+							'type',
+							'listing_type',
+							'city',
+							'address',
+							'price',
+							'rooms_count',
+							'property_surface',
+						],
 						limit: items_count,
 					})
 			  )

@@ -35,7 +35,7 @@ const BlogSection = async ({
 		readItems('posts', {
 			filter,
 			sort: ['-date_created'],
-			fields: ['*', 'categories.*', 'categories.posts_categories_id.title'],
+			fields: [ 'title','slug', 'thumbnail','date_created', 'categories.posts_categories_id.title','categories.posts_categories_id.slug'],
 			limit: items_count,
 		})
 	)

@@ -55,7 +55,7 @@ const Home = async () => {
 						'*',
 						{
 							item: {
-								block_hero: ['*'],
+								
 								block_heading_and_text: ['*'],
 								block_text_image: ['*'],
 								block_properties: ['*', 'selected_properties.properties_id.*'],

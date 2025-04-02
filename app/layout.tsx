@@ -55,7 +55,9 @@ const RootLayout = async ({
 			<body className={`${cormorant.variable} ${openSans.variable}  antialiased`}>
 			<LenisProvider>
 				<Header {...global} />
+				<main>
 				{children}
+				</main>
 				<Footer {...global} />
 				<ScrollToTop />
 				<Toaster />

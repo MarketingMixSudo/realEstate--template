@@ -16,7 +16,7 @@ import MobileMenu from '@/components/header/mobile-menu'
 export const NAV_ITEMS = [
 	{
 		name: 'Nieruchomości',
-		href: '/',
+		href: ROUTES.properties,
 	},
 	{
 		name: 'Kalkulator',
