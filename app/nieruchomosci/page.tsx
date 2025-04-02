@@ -1,93 +1,93 @@
-// import Pagination from "@/components/pagination"
-// import Pagination2 from "@/components/pagination2"
-// import PropertyCard from "@/components/property-card"
-// import SortSelect from "@/components/test"
-// import directus from "@/lib/directus"
-// import { cn } from "@/lib/utils"
-// import { aggregate, readItems } from "@directus/sdk"
+import BlocksRenderer from '@/components/blocks/blocks-renderer'
+import Pagination from '@/components/pagination'
+import PropertyCard from '@/components/property-card'
+import SortSelector from '@/components/sort-selector'
+import directus from '@/lib/directus'
+import { aggregate, readItems } from '@directus/sdk'
+import React from 'react'
+
+const Properties = async ({ searchParams }) => {
+    const sort = searchParams.sort || "-date_created";
+    const page = parseInt(searchParams.page) || 1;
+    const limit = 2;
+    const offset = (page - 1) * limit;
 
 
-// const getTotalPropertyCount = async () => {
-//     const totalCount = await directus.request(
-//       aggregate("properties", {
-//         aggregate: { count: "*" },
-//         filter: { status: { _eq: "published" } }, // Tylko opublikowane nieruchomości
-//       })
-//     );
-//     return totalCount[0].count;
-//   };
+     // Pobierz właściwości z Directus
+  const properties = await directus.request<Property[]>(readItems("properties", {
+    filter: { status: { _eq: "published" } },
+    sort: [sort],
+    fields: [
+      "title", "slug", "thumbnail", "type", "listing_type", "city", 
+      "address", "price", "rooms_count", "date_created", "property_surface"
+    ],
+    limit,
+    offset,
+  }));
 
-// const Properties = async ({ searchParams }) => { 
-//     const LIMIT = 3;
-//     const currentPage = parseInt(searchParams.page) || 1;
-//     // const sortParam = searchParams.sort ;  // Domyślnie sortowanie po dacie utworzenia
-// const sortParam = searchParams?.sort || "-date_created"; // Pobieramy aktualne sortowanie
+  // Pobierz całkowitą liczbę elementów
+  const getTotalPropertiesCount = async () => {
+    const totalCount = await directus.request(
+      aggregate("properties", {
+        aggregate: { count: "*" },
+      })
+    );
+    return totalCount[0].count;
+  };
 
-// const totalCount = await directus.request(
-//     aggregate("properties", {
-//       aggregate: { count: "*" },
-//       filter: { status: { _eq: "published" } }, // Tylko opublikowane nieruchomości
-//     })
-//   );
+  const totalCount = await getTotalPropertiesCount();
+  const totalPages = Math.ceil(totalCount / limit);
 
-//   const total =  totalCount[0].count
- 
+  let gridClass = "grid gap-6 mt-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
 
+	const body = await directus.request<Home>(
+		readItems('page_properties_all', {
+			status: { _eq: 'published' },
+			fields: [
+				'*',
+				{
+					blocks: [
+						'*',
+						{
+							item: {
+								block_hero_classic: ['*'],
+								block_heading_and_text: ['*'],
+								block_text_image: ['*'],
+								block_properties: ['*', 'selected_properties.properties_id.*'],
+								block_properties_slider: ['*', 'selected_properties.properties_id.*'],
+								block_blog_section: ['*'],
+							},
+						},
+					],
+				},
+			],
+		})
+	)
 
-//     const properties = await directus.request<Property[]>(
-//         readItems('properties', {
-//             filter: { status: { _eq: 'published' } },
-//             sort: ['-date_created'],  // Dynamiczne sortowanie na podstawie searchParams
-//             fields: [
-//                 'title',
-//                 'slug',
-//                 'thumbnail',
-//                 'type',
-//                 'listing_type',
-//                 'city',
-//                 'address',
-//                 'price',
-//                 'rooms_count',
-//                 'property_surface',
-//             ],
-//             limit: LIMIT,
-//             page: currentPage,
-//         })
-//     );
+	console.log(page)
 
-// console.log('properties',properties)
-    
+	return (
+		<>
+			<BlocksRenderer blocks={body.blocks} />
 
-//     let gridClass = 'grid gap-6 mt-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+			<section className='section '>
+				<div className='wrapper !max-w-[1800px]'>
+					<div className='flex justify-between items-center'>
+						<span>Znaleźliśmy dla Ciebie {totalCount} ofert</span>
+						<SortSelector />
+					</div>
 
-//     return (
-//         <>
-//             <section className='bg-red-500 w-full h-[300px]'></section>
+					<div className={gridClass}>
+						{properties?.map(property => (
+							<PropertyCard key={property?.slug} {...property} />
+						))}
+					</div>
 
-//         <SortSelect/>
+                    <Pagination currentPage={page} totalPages={totalPages} />
+				</div>
+			</section>
+		</>
+	)
+}
 
-//             <section className={cn('section')}>
-//                 <div className='wrapper !max-w-[1800px]'>
-//                     <div className='flex flex-col justify-center items-center gap-4 max-w-screen-lg mx-auto text-center'>
-//                     </div>
-
-//                     <div className={gridClass}>
-//                         {properties?.map(property => (
-//                             <PropertyCard
-//                                 key={property?.slug}
-//                                 {...property}
-//                             />
-//                         ))}
-//                     </div>
-
-//                     <div className="flex justify-center items-center">
-//                         {/* <Pagination limit={LIMIT} currentPage={currentPage} /> */}
-//                         <Pagination  limit={LIMIT} currentPage={currentPage} totalCount={total}/>
-//                     </div>
-//                 </div>
-//             </section>
-//         </>
-//     )
-// }
-
-// export default Properties;
+export default Properties

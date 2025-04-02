@@ -75,6 +75,21 @@ interface Link {
 	href: string
 }
 
+interface BlockHeroClassic {
+	hero_type: 'image' | 'video'
+	hero_image: string
+	hero_movie: string
+	hero_poster: string
+	hero_preheading: string
+	hero_heading: string
+	hero_subheading: string
+	buttons: {
+		label: string
+		variant: 'default' | 'secondary' | 'outline'
+		href: string
+	}[]
+}
+
 interface BlockHeadingText {
 	preheading?: string
 	heading?: string

@@ -2,6 +2,7 @@ import HeadingText from '@/components/blocks/heading-text'
 import TextImage from '@/components/blocks//text-image'
 import Properties from '@/components/blocks//properties'
 import BlogSection from '@/components/blocks/blog-section'
+import HeroClassic from '@/components/blocks/hero-classic'
 
 import PropertiesSliderWrapper from '@/components/properties-carousel/properties-slider-wrapper'
 
@@ -14,6 +15,10 @@ const BlocksRenderer = ({ blocks }: { blocks: Home['blocks'] }) => {
 				const isFirstBlock = index === 0
 				const isLastBlock = index === blocks.length - 1
 				const blockClass = `${isFirstBlock ? '!pt-20' : ''} ${isLastBlock ? '!pb-20' : ''}`
+
+				if (block.collection === 'block_hero_classic') {
+					return <HeroClassic key={block.item.id} {...block.item}  />
+				}
 
 				if (block.collection === 'block_heading_and_text') {
 					return <HeadingText key={block.item.id} {...block.item} className={blockClass} />

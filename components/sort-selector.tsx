@@ -3,7 +3,6 @@
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
 
 export default function SortAndPagination() {
   const searchParams = useSearchParams();
@@ -22,13 +21,7 @@ export default function SortAndPagination() {
     });
   };
 
-  // const handlePageChange = (newPage) => {
-  //   startTransition(() => {
-  //     const params = new URLSearchParams(searchParams);
-  //     params.set('page', newPage.toString());
-  //     router.replace(`?${params.toString()}`);
-  //   });
-  // };
+
 
   return (
     <div className="flex flex-col gap-4">
@@ -43,15 +36,7 @@ export default function SortAndPagination() {
           <SelectItem value="-price">cena malejąco</SelectItem>
         </SelectContent>
       </Select>
-      {/* <div className="flex gap-4 justify-center items-center">
-        <Button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage <= 1 || isPending}>
-          Poprzednia
-        </Button>
-        <span className="text-lg">Strona {currentPage}</span>
-        <Button onClick={() => handlePageChange(currentPage + 1)} disabled={isPending}>
-          Następna
-        </Button>
-      </div> */}
+     
     </div>
   );
 }
