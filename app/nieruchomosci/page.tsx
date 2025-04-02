@@ -64,7 +64,7 @@ const Properties = async ({ searchParams }) => {
 		})
 	)
 
-	console.log(page)
+	
 
 	return (
 		<>

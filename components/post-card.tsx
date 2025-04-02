@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const PostCard = ({ slug, thumbnail, title, date_created, categories }: Post) => {
-	const postCategories = categories.map(category => {
+	const postCategories = categories?.map(category => {
 		return category.posts_categories_id
 	})
 
@@ -25,11 +25,11 @@ const PostCard = ({ slug, thumbnail, title, date_created, categories }: Post) =>
 			)}
 
 			<div className='bg-primary-400 text-white flex flex-col justify-center items-center text-center px-3 py-6 gap-2'>
-				<span className='text-sm'>{formatDate(date_created)}</span>
+				{date_created && <span className='text-sm'>{formatDate(date_created)}</span>}
 
 				<h3 className='text-2xl line-clamp-1'> {title}</h3>
 
-				{postCategories.slice(0, 1).map(category => (
+				{postCategories?.slice(0, 1).map(category => (
 					<span key={category.slug} className='text-sm'>
 						{category.title}
 						{postCategories.length > 2 && <span>+{postCategories.length - 1}</span>}

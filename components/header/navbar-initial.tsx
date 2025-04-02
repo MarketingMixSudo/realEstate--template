@@ -32,11 +32,11 @@ export const NAV_ITEMS = [
 	},
 	{
 		name: 'Blog',
-		href: '#',
+		href: ROUTES.blog.list,
 	},
 	{
 		name: 'Kontakt',
-		href: '#',
+		href: ROUTES.contact,
 	},
 ]
 

@@ -36,6 +36,25 @@ interface Home {
 	}[]
 }
 
+interface PagePredefined {
+	meta_title?: string
+	meta_description?: string
+	og_image?: string
+	
+	buttons: {
+		label: string
+		variant: 'default' | 'secondary' | 'outline'
+		href: string
+	}[]
+	blocks: {
+		id: string
+		collection: string
+		item: {
+			id: string
+		}
+	}[]
+}
+
 interface Property {
 	title?: string
 	slug?: string
@@ -51,12 +70,12 @@ interface Property {
 }
 
 interface Post {
-	id: string
-	title: string
-	slug: string
-	thumbnail: string
-	date_created: string
-	categories: {
+	id?: string
+	title?: string
+	slug?: string
+	thumbnail?: string
+	date_created?: string
+	categories?: {
 		id: string
 		title: string
 		slug: string
