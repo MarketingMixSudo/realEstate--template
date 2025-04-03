@@ -14,7 +14,7 @@ const Footer = ({ logo, name, phone, email, socials }: Global) => {
 
 	return (
 		<>
-			<div className='' style={{ backgroundImage: 'linear-gradient(180deg, rgba(0, 0, 0, 0) 52%, black 52%, black)' }}>
+			<div className='mt-20' style={{ backgroundImage: 'linear-gradient(180deg, rgba(0, 0, 0, 0) 52%, black 52%, black)' }}>
   <div className='max-w-screen-xl  relative pt-32  sm:mx-10 2xl:mx-auto'>
     
     <Image src={dummyImage} alt='bg' fill className='object-cover object-center z-10' />

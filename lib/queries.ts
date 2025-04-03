@@ -38,6 +38,7 @@ export const getPosts = async (sort: string, limit?: number, offset?: number) =>
 				'slug',
 				'thumbnail',
 				'date_created',
+				'short_description',
 				'categories.posts_categories_id.title',
 				'categories.posts_categories_id.slug',
 			],

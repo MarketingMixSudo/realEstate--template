@@ -31,7 +31,7 @@ const HeroClassic = ({
 			<div className='absolute inset-0 w-full h-full  bg-black/40 z-10'></div>
 
 			{/* Content Section */}
-			<div className='flex flex-col justify-center items-center gap-6 mt-12 px-6 text-center text-font-light z-20'>
+			<div className='flex flex-col justify-center items-center gap-6 mt-12 px-6 text-center text-font-light z-20 max-w-screen-lg'>
 				{hero_preheading && <span className='text-sm sm:text-lg uppercase'>{hero_preheading}</span>}
 				<h1 className='text-4xl sm:text-6xl uppercase'>{hero_heading}</h1>
 				{hero_subheading && <span className='text-sm sm:text-lg'>{hero_subheading}</span>}

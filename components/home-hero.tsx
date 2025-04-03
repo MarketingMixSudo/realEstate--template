@@ -20,7 +20,7 @@ const HomeHero = ({
 	
 
 	return (
-		<section className='relative flex justify-center items-center w-full h-dvh overflow-hidden'>
+		<section className='relative flex justify-center items-center w-full h-dvh mb-10 overflow-hidden '>
 			
 			{hero_type === 'video' ? (
 				<video

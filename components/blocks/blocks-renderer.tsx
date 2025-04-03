@@ -12,9 +12,10 @@ const BlocksRenderer = ({ blocks }: { blocks: Home['blocks'] }) => {
 	return (
 		<>
 			{blocks.map((block, index) => {
-				const isFirstBlock = index === 0
-				const isLastBlock = index === blocks.length - 1
-				const blockClass = `${isFirstBlock ? '!pt-20' : ''} ${isLastBlock ? '!pb-20' : ''}`
+				// const isFirstBlock = index === 0
+				// const isLastBlock = index === blocks.length - 1
+				// const blockClass = `${isFirstBlock ? '!pt-20' : ''} ${isLastBlock ? '!pb-20' : ''}`
+				const blockClass = ''
 
 				if (block.collection === 'block_hero_classic') {
 					return <HeroClassic key={block.item.id} {...block.item}  />

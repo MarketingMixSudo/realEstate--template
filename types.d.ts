@@ -36,10 +36,18 @@ interface Home {
 	}[]
 }
 
+
+interface PageBlogList extends PagePredefined {
+	items_count: number
+	grid_columns: number
+	listing_type: 'grid'|'list'
+}
+
 interface PagePredefined {
 	meta_title?: string
 	meta_description?: string
 	og_image?: string
+	
 	
 	buttons: {
 		label: string
