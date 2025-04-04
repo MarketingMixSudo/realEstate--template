@@ -22,7 +22,7 @@ const PostCardList = ({ thumbnail, title, date_created, slug, short_description,
 
 			<div className='flex flex-col gap-6 justify-center py-2'>
 				{postCategories?.slice(0, 1).map(category => (
-					<Link href='#' key={category.slug} className='text-sm'>
+					<Link href={ROUTES.blog.category(category.slug)} key={category.slug} className='text-sm'>
 						{category.title}
 						{postCategories.length > 2 && <span>+{postCategories.length - 1}</span>}
 					</Link>

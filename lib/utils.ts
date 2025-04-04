@@ -21,6 +21,13 @@ export const formatDate = (date: string) => {
 	})
 }
 
+export const slugToTitle = (slug: string): string => {
+	return slug
+		.split('-')
+		.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+		.join(' ')
+}
+
 export const getGridClass = (grid_columns: number) => {
 	const gridClass = 'grid gap-6 mt-12'
 

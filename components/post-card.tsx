@@ -1,5 +1,6 @@
 //completed
 
+import ROUTES from '@/lib/routes'
 import { formatDate, getAssetUrl } from '@/lib/utils'
 
 import Image from 'next/image'
@@ -30,10 +31,10 @@ const PostCard = ({ slug, thumbnail, title, date_created, categories }: Post) =>
 				<h3 className='text-2xl line-clamp-1'> {title}</h3>
 
 				{postCategories?.slice(0, 1).map(category => (
-					<span key={category.slug} className='text-sm'>
+					<Link href={ROUTES.blog.category(category.slug)} key={category.slug} className='text-sm'>
 						{category.title}
 						{postCategories.length > 2 && <span>+{postCategories.length - 1}</span>}
-					</span>
+					</Link>
 				))}
 			</div>
 		</Link>

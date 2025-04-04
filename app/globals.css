@@ -170,7 +170,7 @@
 	
 
 	.section {
-		@apply pt-12 pb-12;
+		@apply py-6 lg:py-12;
 	}
 
 	.wrapper {

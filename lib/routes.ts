@@ -11,6 +11,7 @@ const ROUTES = {
 	blog: {
 		list: '/aktualnosci',
 		detail: (slug: string) => `/aktualnosci/${slug}`,
+		category: (slug: string) => `/aktualnosci/kategoria/${slug}`,
 	},
 
 	contact: '/kontakt',
